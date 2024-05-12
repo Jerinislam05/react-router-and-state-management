@@ -1,12 +1,14 @@
 import './App.css'
-import DaisyNav from './components/DaisyNav/DaisyNav'
+import NavBar from './components/DaisyNav/NavBar/NavBar'
+// import DaisyNav from './components/DaisyNav/DaisyNav'
 
 function App() {
 
   return (
     <>
-      <DaisyNav></DaisyNav>
-      <h1 className='text-2xl font-bold text-center'>**Vite + React**</h1>
+      <NavBar></NavBar>
+      {/* <DaisyNav></DaisyNav> */}
+      <h1 className='text-2xl font-bold'>**Vite + React**</h1>
     </>
   )
 }
