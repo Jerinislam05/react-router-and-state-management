@@ -11,13 +11,16 @@ import Home from './components/Home/Home';
 import Users from './components/Users/Users.jsx';
 import UserDetails from './components/Users/User/UserDetails/UserDetails.jsx';
 import Posts from './components/Posts/Posts.jsx';
-import Post from './components/Posts/Post/Post.jsx';
-import PostDetails from './components/PostDrtails/PostDetails.jsx';
+import PostDetails from './components/PostDetails/PostDetails.jsx';
+import Albums from './components/Albums/Albums.jsx';
+import AlbumDetails from './components/Albums/Album/AlbumDetails/AlbumDetails.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/about',
@@ -46,6 +49,16 @@ const router = createBrowserRouter([
         path: '/post/:postId',
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
         element: <PostDetails></PostDetails>
+      },
+      {
+        path: '/albums',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/albums'),
+        element: <Albums></Albums>
+      },
+      {
+        path: '/album/:albumId',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/albums/${params.albumId}`),
+        element: <AlbumDetails></AlbumDetails>
       }
     ]
   },
